@@ -5,4 +5,4 @@ test -d Paper && rm -rf Paper || true
 
 git clone https://github.com/PaperMC/Paper.git
 
-(cd modded-files && cp -av * ../Paper/)
+(cd overlay && cp -av * ../Paper/)
