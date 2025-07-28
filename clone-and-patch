@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euxo pipefail
+
+test -d Paper && rm -rf Paper || true
+
+git clone https://github.com/PaperMC/Paper.git
+
+(cd modded-files && cp -av * ../Paper/)
