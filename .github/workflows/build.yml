@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./clone-and-patch
+      - run: echo "paperid=$(cd Paper && git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+        id: paperid
+      - uses: actions/cache@v4
+        with:
+          key: "${{steps.paperid.outputs.paperid}}"
+          path: Paper
+      - run: (cd Paper && ./gradlew applyPatches && ./gradlew createMojmapPaperclipJar)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: papiere-paperclip-jar
+          path: Paper/paper-server/build/libs/paper-paperclip-*.jar
