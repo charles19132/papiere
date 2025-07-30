@@ -26,7 +26,10 @@ jobs:
       - uses: actions/cache@v4
         with:
           key: "${{steps.paperid.outputs.paperid}}-${{hashFiles('overlay/**/*')}}"
-          path: Paper
+          path: |
+            Paper
+            ~/.gradle/caches
+            ~/.gradle/wrapper
       - name: Build
         run: |
           cd Paper
@@ -36,3 +39,4 @@ jobs:
         with:
           name: paperclip-jar
           path: Paper/paper-server/build/libs/paper-paperclip-*.jar
+      - run: pkill -f '.*GradleDaemon.*'
