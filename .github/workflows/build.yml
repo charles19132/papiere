@@ -34,5 +34,5 @@ jobs:
           ./gradlew createMojmapPaperclipJar
       - uses: actions/upload-artifact@v4
         with:
-          name: papiere-paperclip-jar
+          name: paperclip-jar
           path: Paper/paper-server/build/libs/paper-paperclip-*.jar
