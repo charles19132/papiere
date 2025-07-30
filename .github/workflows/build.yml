@@ -21,7 +21,7 @@ jobs:
         id: paperid
       - uses: actions/cache@v4
         with:
-          key: "${{steps.paperid.outputs.paperid}}"
+          key: "${{steps.paperid.outputs.paperid}}-${{hashFiles('overlay/**/')}}"
           path: Paper
       - run: (cd Paper && ./gradlew applyPatches && ./gradlew createMojmapPaperclipJar)
       - uses: actions/upload-artifact@v4
