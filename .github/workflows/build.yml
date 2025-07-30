@@ -18,8 +18,8 @@ jobs:
           java-version: 21
       - name: Fix Git config
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - run: ./clone-and-patch
       - run: echo "paperid=$(cd Paper && git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
         id: paperid
@@ -27,7 +27,11 @@ jobs:
         with:
           key: "${{steps.paperid.outputs.paperid}}-${{hashFiles('overlay/**/*')}}"
           path: Paper
-      - run: (cd Paper && ./gradlew applyPatches && ./gradlew createMojmapPaperclipJar)
+      - name: Build
+        run: |
+          cd Paper
+          ./gradlew applyPatches
+          ./gradlew createMojmapPaperclipJar
       - uses: actions/upload-artifact@v4
         with:
           name: papiere-paperclip-jar
