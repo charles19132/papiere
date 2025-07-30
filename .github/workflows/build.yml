@@ -16,6 +16,10 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
+      - name: Fix Git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - run: ./clone-and-patch
       - run: echo "paperid=$(cd Paper && git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
         id: paperid
