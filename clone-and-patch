@@ -3,6 +3,6 @@ set -euxo pipefail
 
 test -d Paper && rm -rf Paper || true
 
-git clone https://github.com/PaperMC/Paper.git
+git clone --depth=1 --single-branch --branch=main https://github.com/PaperMC/Paper.git
 
 (cd overlay && cp -av * ../Paper/)
