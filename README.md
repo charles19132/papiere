@@ -10,7 +10,7 @@ It will function exactly like a Paper JAR except that it won't have telemetry. P
 
 ## Plugin compatibility
 
-All plugins should work. As far as we know, the built-in bStats in Paper is only used by Paper itself. Plugins can use their own bStats version.
+All plugins should work. As far as we know, the built-in bStats implementation in Paper is only used by Paper itself. Plugins can use their own bStats version.
 
 ### bStats.yml is present
 
