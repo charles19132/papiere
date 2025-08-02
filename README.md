@@ -14,7 +14,7 @@ All plugins should work. As far as we know, the built-in bStats implementation i
 
 ### bStats.yml is present
 
-This is almost certainly coming from a plugin. Check your plugin JARs for any files named "Metrics.class".
+This is almost certainly coming from a plugin. Check your plugin JARs for any files named `Metrics.class`.
 
 Also, copy the Papiere JAR file into a new server, accept the EULA, and run it. If the bStats.yml file is still present, please report it as a bug.
 
