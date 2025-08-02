@@ -18,6 +18,10 @@ This is almost certainly coming from a plugin. Check your plugin JARs for any fi
 
 Also, copy the Papiere JAR file into a new server, accept the EULA, and run it. If the bStats.yml file is still present, please report it as a bug.
 
+## API
+
+A special Papiere API isn't needed due to the scope of the changes.
+
 ## Build
 
 ```sh
